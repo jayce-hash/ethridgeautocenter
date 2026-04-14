@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ethridge Auto Center provides affordable, top-rated auto repair, oil changes, and inspections in Colleyville, TX. Consistently voted BEST in NE Tarrant County.">
-    <meta name="keywords" content="Auto repair, Colleyville TX, mechanic, oil change, car inspection, auto service, Ethridge Auto Center">
-    <meta name="author" content="Ethridge Auto Center">
-    <title>Ethridge Auto Center | Premier Auto Repair in Colleyville, TX</title>
+    <title>Ethridge Auto Center | Premium Auto Repair</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "Ethridge Auto Center",
       "telephone": "+1-817-488-0361",
-      "email": "jacquie@ethridgeauto.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "6007 Colleyville Blvd",
@@ -27,377 +28,428 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "reviewCount": "159"
-      },
-      "description": "Auto repair shop offering services including oil changes, pre-purchase inspections, and repairs."
+      }
     }
     </script>
 
     <style>
-        /* CSS Variables for Consistent Theming */
+        /* Modern CSS Reset & Variables */
         :root {
-            --primary-color: #004aad; /* Trustworthy Blue */
-            --secondary-color: #ff3131; /* Action Red */
-            --dark-color: #1a1a1a;
-            --light-color: #f8f9fa;
-            --text-color: #333333;
-            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --bg-color: #0d0d0f;
+            --surface-color: #1a1a1d;
+            --surface-light: #2a2a2f;
+            --accent-color: #ff3131; /* Racing Red */
+            --text-main: #ffffff;
+            --text-muted: #a0a0ab;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-family);
-            color: var(--text-color);
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            background-color: var(--light-color);
+            overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        a { text-decoration: none; color: inherit; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
+        /* Glassmorphism Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(13, 13, 15, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
+            font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-color); }
+
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        .nav-links a:hover { color: var(--text-main); }
+
+        .btn-nav {
+            background: var(--accent-color);
+            color: #fff !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a {
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .btn-call {
-            background-color: var(--primary-color);
-            color: #ffffff !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn-call:hover {
-            background-color: #003380;
+        .btn-nav:hover {
+            background: #d42222;
+            box-shadow: 0 0 15px rgba(255, 49, 49, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(13,13,15,0.9) 0%, rgba(13,13,15,0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?q=80&w=2000&auto=format&fit=crop') center/cover;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
             text-align: center;
-            padding: 6rem 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-main);
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .btn-primary {
-            background-color: var(--secondary-color);
-            color: #ffffff;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            font-weight: bold;
+        /* Layout Utility */
+        section { padding: 8rem 5%; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
             display: inline-block;
-            transition: transform 0.3s, background 0.3s;
         }
 
-        .btn-primary:hover {
-            background-color: #cc0000;
-            transform: translateY(-3px);
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 25%;
         }
 
-        /* Info Section (Intro) */
-        .intro-section {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: #ffffff;
-        }
-
-        .intro-section h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .intro-section p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #555;
-            font-style: italic;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--dark-color);
-        }
-
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .service-card {
-            background: #ffffff;
-            padding: 2rem;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-light);
+            padding: 3rem 2rem;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--accent-color);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+            transform-origin: bottom;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+            background: var(--surface-light);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+
+        .service-card:hover::before { transform: scaleY(1); }
 
         .service-card h3 {
+            font-family: var(--font-display);
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--dark-color);
         }
+
+        .service-card p { color: var(--text-muted); }
 
         /* Reviews Section */
-        .reviews {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            padding: 4rem 2rem;
-            text-align: center;
+        .reviews-section {
+            background: var(--surface-color);
+            border-top: 1px solid var(--surface-light);
+            border-bottom: 1px solid var(--surface-light);
         }
 
-        .reviews h2 {
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-        }
-
-        .review-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .review-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
+        .review-card {
+            background: var(--bg-color);
+            padding: 2.5rem;
             border-radius: 8px;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .review-box p {
-            font-size: 1.1rem;
-            font-style: italic;
+            border: 1px solid var(--surface-light);
         }
 
         .stars {
             color: #ffd700;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
         }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-banner {
+            text-align: center;
+            margin-top: 4rem;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .rating-banner span { color: var(--accent-color); }
 
         /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .contact-info h2 {
-            font-size: 2.2rem;
+        .contact-info {
+            background: var(--surface-color);
+            padding: 3rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-row {
+            display: flex;
             margin-bottom: 1.5rem;
-            color: var(--dark-color);
+            font-size: 1.1rem;
         }
 
-        .contact-details p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+        .info-row strong {
+            width: 120px;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
         }
 
-        .contact-details strong {
-            width: 100px;
-            color: var(--primary-color);
-        }
-
-        .map-container {
-            width: 100%;
-            height: 300px;
-            background-color: #e0e0e0;
+        .map-box {
+            background: var(--surface-light);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: var(--text-muted);
+            min-height: 400px;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark-color);
-            color: #ffffff;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 5%;
+            background: #000;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* In a full build, add a hamburger menu here */
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .contact {
-                grid-template-columns: 1fr;
-            }
+            .nav-links { display: none; } /* Hide links on mobile for simplicity in single file */
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1rem; }
+            .section-header h2 { font-size: 2.2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">Ethridge Auto Center</div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact">Contact</a>
-                <a href="tel:8174880361" class="btn-call">(817) 488-0361</a>
-            </nav>
+    <nav>
+        <div class="logo">Ethridge<span>Auto</span></div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:8174880361" class="btn-nav">CALL NOW</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">Voted Best in NE Tarrant County</div>
+            <h1>Precision <span>&</span> Power</h1>
+            <p>Expert auto repair, oil changes, and pre-purchase inspections in Colleyville, TX. Experience the standard of automotive excellence.</p>
+            <a href="tel:8174880361" class="btn-nav" style="font-size: 1.2rem; padding: 1rem 2rem;">(817) 488-0361</a>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Voted Best in NE Tarrant County</h1>
-        <p>Expert auto repair, oil changes, and inspections. Friendly, honest service you can trust.</p>
-        <a href="tel:8174880361" class="btn-primary">Schedule Appointment</a>
-    </section>
-
-    <section id="about" class="intro-section">
-        <h2>Your Trusted Hometown Mechanic</h2>
-        <p>"We believe in providing AFFORDABLE auto repair and delivering the BEST in customer service! Come in and see why EAC is consistently voted the BEST in NE Tarrant County!"</p>
-    </section>
-
-    <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
+    <section id="services">
+        <div class="section-header">
+            <h2>Our Expertise</h2>
+        </div>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Oil Changes</h3>
-                <p>Fast, efficient, and thorough oil change services to keep your engine running smoothly and extend the life of your vehicle.</p>
+                <h3>Routine Maintenance</h3>
+                <p>High-performance oil changes and fluid flushes designed to keep your engine running at peak efficiency.</p>
             </div>
             <div class="service-card">
                 <h3>Pre-Purchase Inspections</h3>
-                <p>Buying a used car? Let our expert technicians give it a comprehensive check-over so you can buy with total confidence.</p>
+                <p>Don't buy blind. Our technicians provide a rigorous, bumper-to-bumper diagnostic check so you can buy with absolute certainty.</p>
             </div>
             <div class="service-card">
-                <h3>General Repairs</h3>
-                <p>From brake pads to engine diagnostics, we provide top-tier auto repair to get you back on the road safely.</p>
+                <h3>Advanced Diagnostics</h3>
+                <p>Check engine light on? We use state-of-the-art diagnostic equipment to pinpoint the issue and get you back on the road safely.</p>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="reviews">
-        <h2>What Our Customers Say</h2>
-        <div class="review-container">
-            <div class="review-box">
+    <section id="reviews" class="reviews-section">
+        <div class="section-header">
+            <h2>Client Trust</h2>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Great work, quick turnaround; friendly, honest service."</p>
+                <div class="review-text">"Great work, quick turnaround; friendly, honest service."</div>
+                <div style="color: var(--accent-color); font-weight: bold;">— Verified Google Review</div>
             </div>
-            <div class="review-box">
+            <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Tim and the staff treated me like family."</p>
+                <div class="review-text">"Tim and the staff treated me like family."</div>
+                <div style="color: var(--accent-color); font-weight: bold;">— Verified Google Review</div>
             </div>
         </div>
-        <p style="margin-top: 2rem;"><strong>4.8 ★ Rating across 159 Google Reviews!</strong></p>
+        <div class="rating-banner">
+            Backed by a <span>4.8 Star</span> rating across 159 reviews.
+        </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="contact-info">
-            <h2>Visit Us Today</h2>
-            <div class="contact-details">
-                <p><strong>Address:</strong> 6007 Colleyville Blvd, Colleyville, TX 76034</p>
-                <p><strong>Phone:</strong> <a href="tel:8174880361">(817) 488-0361</a></p>
-                <p><strong>Email:</strong> <a href="mailto:jacquie@ethridgeauto.com">jacquie@ethridgeauto.com</a></p>
-                <p><strong>Hours:</strong> Open daily · Closes at 5 PM</p>
+    <section id="contact">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Visit The Shop</h3>
+                <div class="info-row">
+                    <strong>Address</strong>
+                    <span>6007 Colleyville Blvd<br>Colleyville, TX 76034</span>
+                </div>
+                <div class="info-row">
+                    <strong>Phone</strong>
+                    <span><a href="tel:8174880361" style="color: var(--text-main); font-weight: bold;">(817) 488-0361</a></span>
+                </div>
+                <div class="info-row">
+                    <strong>Email</strong>
+                    <span><a href="mailto:jacquie@ethridgeauto.com" style="color: var(--text-main);">jacquie@ethridgeauto.com</a></span>
+                </div>
+                <div class="info-row">
+                    <strong>Hours</strong>
+                    <span>Open Daily · Closes at 5:00 PM</span>
+                </div>
             </div>
-        </div>
-        <div>
-            <div class="map-container">
-                <p>[Interactive Google Map Placeholder]</p>
+            <div class="map-box">
+                <p>[ Google Maps Embed Goes Here ]</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Ethridge Auto Center. All rights reserved. | Colleyville, Texas</p>
+        <p>&copy; 2026 Ethridge Auto Center. All rights reserved. | 6007 Colleyville Blvd, Colleyville, TX.</p>
     </footer>
 
 </body>
